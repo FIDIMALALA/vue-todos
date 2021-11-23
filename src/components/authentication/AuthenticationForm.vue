@@ -1,7 +1,7 @@
 <template>
   <v-container fluid fill-height>
     <v-layout align-center justify-center>
-      <v-flex xs12 sm8 md4>
+      <v-flex align-center justify-center xs12 sm8 md4>
         <v-card elevation="2">
           <v-toolbar elevation="0" dark color="primary">
             <v-toolbar-title>Login</v-toolbar-title>
@@ -17,10 +17,12 @@
               ></v-text-field>
               <v-text-field
                 :v-model="credential.password"
+                :append-icon="togglePasswordIcon"
+                :type="passwordType"
                 prepend-icon="mdi-lock"
                 name="password"
                 label="Password"
-                type="password"
+                @click:append="togglePassword"
               ></v-text-field>
             </v-form>
           </v-card-text>
@@ -46,5 +48,17 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class AuthenticationForm extends Vue {
   showPassword = false
   credential: Credential = EMPTY_CREDENTIAL
+
+  get togglePasswordIcon(): string {
+    return `mdi-eye${this.showPassword ? '' : '-off'}`
+  }
+
+  get passwordType(): string {
+    return this.showPassword ? 'password' : 'text'
+  }
+
+  togglePassword(): void {
+    this.showPassword = !this.showPassword
+  }
 }
 </script>
