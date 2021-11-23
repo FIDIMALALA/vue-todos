@@ -40,25 +40,25 @@
 </template>
 
 <script lang="ts">
-import { Credential } from '@/models/authentication'
-import { EMPTY_CREDENTIAL } from '@/constants/authentication'
-import { Component, Vue } from 'vue-property-decorator'
+import { Credential } from '@/models/authentication';
+import { EMPTY_CREDENTIAL } from '@/constants/authentication';
+import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class AuthenticationForm extends Vue {
-  showPassword = false
-  credential: Credential = EMPTY_CREDENTIAL
+  showPassword = false;
+  credential: Credential = EMPTY_CREDENTIAL;
 
   get togglePasswordIcon(): string {
-    return `mdi-eye${this.showPassword ? '' : '-off'}`
+    return `mdi-eye${this.showPassword ? '' : '-off'}`;
   }
 
   get passwordType(): string {
-    return this.showPassword ? 'password' : 'text'
+    return this.showPassword ? 'password' : 'text';
   }
 
   togglePassword(): void {
-    this.showPassword = !this.showPassword
+    this.showPassword = !this.showPassword;
   }
 }
 </script>

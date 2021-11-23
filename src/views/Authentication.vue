@@ -3,8 +3,8 @@
 </template>
 
 <script lang="ts">
-import AuthenticationForm from '@/components/authentication/AuthenticationForm.vue'
-import { Component, Vue } from 'vue-property-decorator'
+import AuthenticationForm from '@/components/authentication/AuthenticationForm.vue';
+import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
   components: { AuthenticationForm }
